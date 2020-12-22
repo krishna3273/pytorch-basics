@@ -51,6 +51,7 @@ data_transforms = {
 }
 
 #Loading dataset and creating batches
+#Dataset link-https://download.pytorch.org/tutorial/hymenoptera_data.zip(need to download first and place it in datasets directory)
 data_dir = './datasets/hymenoptera_data'
 image_datasets = {x: datasets.ImageFolder(os.path.join(data_dir, x),data_transforms[x])
                 for x in ['train', 'val']}
