@@ -26,8 +26,8 @@ dataset=WineDataset()
 
 # features,labels=dataset[0]
 # print(f"features={features} label={labels}")
-# batch_size=5
-# dataloader=DataLoader(dataset=dataset,batch_size=batch_size,shuffle=4)
+batch_size=5
+dataloader=DataLoader(dataset=dataset,batch_size=batch_size,shuffle=4)
 
 # data_iter=iter(dataloader)
 # features,labels=data_iter.next()
