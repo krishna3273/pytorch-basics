@@ -9,14 +9,17 @@ device=torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
 input_size=784
 hidden_size=100
-num_epochs=3
+num_epochs=10
 num_classes=10
 batch_size=100
-learning_rate=0.01
+learning_rate=0.005
 
-train_dataset=torchvision.datasets.MNIST(root='./data',train=True,transform=transforms.ToTensor(),download=True)
+#Mean and Variance of entire dataset input to normalise
+transform=transforms.Compose([transforms.ToTensor(),transforms.Normalize((0.1307,),(0.3081,))])
 
-test_dataset=torchvision.datasets.MNIST(root='./data',transform=transforms.ToTensor())
+train_dataset=torchvision.datasets.MNIST(root='./data',train=True,transform=transform,download=True)
+
+test_dataset=torchvision.datasets.MNIST(root='./data',transform=transform)
 
 print(type(test_dataset))
 
@@ -85,3 +88,5 @@ with torch.no_grad():
         num_correct_samples+=(y_pred==labels).sum().item()
     accuracy=(num_correct_samples/n_samples)*100
     print(f'Accuracy on test data is {accuracy}')
+
+torch.save(model.state_dict(),"../pytorch-flask-app/mnist_nn.pth")
