@@ -1,3 +1,4 @@
+#Command to run tensorboard ----> tensorboard --logdir=name_of_logging_directory(name is "runs" in this case)
 import torch
 import torch.nn as nn
 import torchvision

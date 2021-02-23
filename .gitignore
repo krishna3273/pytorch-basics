@@ -1,4 +1,5 @@
 data/MNIST/
 datasets/
 runs/
+lightning_logs/
 *.pth
